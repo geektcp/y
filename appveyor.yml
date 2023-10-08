@@ -1,0 +1,42 @@
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+# Build worker image (VM template)
+image: Visual Studio 2017
+
+clone_depth: 3
+
+platform:
+  - Win32
+  - x64
+
+configuration:
+  - Debug
+  - Release
+
+# environment:
+#   matrix:
+#     - TOOLSET: v140
+
+matrix:
+  fast_finish: false
+
+# scripts that are called at very beginning, before repo cloning
+init:
+  - cmd: cmake --version
+  - cmd: msbuild /version
+
+before_build:
+  - cmake . -Bbuild -A%PLATFORM% -DCMAKE_BUILD_TYPE=%configuration%
+
+build:
+  project: build/CPP_BOILERPLATE.sln
+  parallel: true
+  verbosity: minimal
+
+test_script:
+  - cd build
+  - set CTEST_OUTPUT_ON_FAILURE=1
+  - ctest -C %configuration%
+  - cd ..
