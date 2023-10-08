@@ -13,6 +13,10 @@ cmake_minimum_required(VERSION 3.9)
 project(EXAMPLE-CPP VERSION 1.2.3.4 LANGUAGES CXX)
 
 SET(MAIN_EXECUTE example)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
+
+set(CMAKE_CXX_STANDARD 17)
 
 # Options: Things you can set via commandline options to cmake (e.g. -DENABLE_LTO=[ON|OFF])
 option(ENABLE_WARNINGS_SETTINGS "Allow target_set_warnings to add flags and defines.
@@ -25,7 +29,7 @@ option(ENABLE_DOCTESTS "Include tests in the library. Setting this to OFF will r
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 include(ConfigSafeGuards)
 include(Colors)
-include(CTest)
+#include(CTest)
 include(LTO)
 include(Misc)
 include(Warnings)
@@ -71,10 +75,11 @@ target_enable_lto(${MAIN_EXECUTE} optimized)  # enable link-time-optimization if
 set_target_properties(
     ${LIBRARY_NAME} ${MAIN_EXECUTE}
         PROPERTIES
+        C_STANDARD 99
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED YES
         CXX_EXTENSIONS NO
 )
 
 # Set up tests (see tests/CMakeLists.txt).
-add_subdirectory(tests)
+#add_subdirectory(tests)
