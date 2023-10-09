@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "spdlog/common.h"
+#include <spdlog/common.h>
 #include <tuple>
 
 namespace spdlog {
@@ -57,5 +57,5 @@ private:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/file_helper-inl.h"
+    #include "file_helper-inl.h"
 #endif

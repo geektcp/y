@@ -3,14 +3,14 @@
 
 #pragma once
 
-#include "spdlog/details/circular_q.h"
-#include "spdlog/details/log_msg_buffer.h"
+#include <spdlog/details/circular_q.h>
+#include <spdlog/details/log_msg_buffer.h>
 
 #include <atomic>
 #include <functional>
 #include <mutex>
 
-// Store spdlog messages in circular buffer.
+// Store log messages in circular buffer.
 // Useful for storing debug data in case of error/warning happens.
 
 namespace spdlog {
@@ -41,5 +41,5 @@ public:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/backtracer-inl.h"
+    #include "backtracer-inl.h"
 #endif

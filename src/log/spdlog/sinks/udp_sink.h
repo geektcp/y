@@ -3,13 +3,13 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/base_sink.h>
 #ifdef _WIN32
-    #include "spdlog/details/udp_client-windows.h"
+    #include <spdlog/details/udp_client-windows.h>
 #else
-    #include "spdlog/details/udp_client.h"
+    #include <spdlog/details/udp_client.h>
 #endif
 
 #include <chrono>
@@ -18,7 +18,7 @@
 #include <string>
 
 // Simple udp client sink
-// Sends formatted spdlog via udp
+// Sends formatted log via udp
 
 namespace spdlog {
 namespace sinks {

@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "spdlog/dist_sink.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/details/null_mutex.h"
+#include "dist_sink.h"
+#include <spdlog/details/log_msg.h>
+#include <spdlog/details/null_mutex.h>
 
 #include <chrono>
 #include <cstdio>
@@ -17,7 +17,7 @@
 //
 // Example:
 //
-//     #include "spdlog/sinks/dup_filter_sink.h"
+//     #include <spdlog/sinks/dup_filter_sink.h>
 //
 //     int main() {
 //         auto dup_filter = std::make_shared<dup_filter_sink_st>(std::chrono::seconds(5),
@@ -59,7 +59,7 @@ protected:
             return;
         }
 
-        // spdlog the "skipped.." message
+        // log the "skipped.." message
         if (skip_counter_ > 0) {
             char buf[64];
             auto msg_size = ::snprintf(buf, sizeof(buf), "Skipped %u duplicate messages..",
@@ -71,14 +71,14 @@ protected:
             }
         }
 
-        // spdlog current message
+        // log current message
         dist_sink<Mutex>::sink_it_(msg);
         last_msg_time_ = msg.time;
         skip_counter_ = 0;
         last_msg_payload_.assign(msg.payload.data(), msg.payload.data() + msg.payload.size());
     }
 
-    // return whether the spdlog msg should be displayed (true) or skipped (false)
+    // return whether the log msg should be displayed (true) or skipped (false)
     bool filter_(const details::log_msg &msg) {
         auto filter_duration = msg.time - last_msg_time_;
         return (filter_duration > max_skip_duration_) || (msg.payload != last_msg_payload_);

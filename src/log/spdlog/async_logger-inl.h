@@ -4,11 +4,11 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/async_logger.h"
+    #include <spdlog/async_logger.h>
 #endif
 
-#include "spdlog/details/thread_pool.h"
-#include "spdlog/sinks/sink.h"
+#include <spdlog/details/thread_pool.h>
+#include <spdlog/sinks/sink.h>
 
 #include <memory>
 #include <string>
@@ -30,13 +30,13 @@ SPDLOG_INLINE spdlog::async_logger::async_logger(std::string logger_name,
     : async_logger(
           std::move(logger_name), {std::move(single_sink)}, std::move(tp), overflow_policy) {}
 
-// send the spdlog message to the thread pool
+// send the log message to the thread pool
 SPDLOG_INLINE void spdlog::async_logger::sink_it_(const details::log_msg &msg){
     SPDLOG_TRY{if (auto pool_ptr = thread_pool_.lock()){
         pool_ptr->post_log(shared_from_this(), msg, overflow_policy_);
 }
 else {
-    throw_spdlog_ex("async spdlog: thread pool doesn't exist anymore");
+    throw_spdlog_ex("async log: thread pool doesn't exist anymore");
 }
 }
 SPDLOG_LOGGER_CATCH(msg.source)

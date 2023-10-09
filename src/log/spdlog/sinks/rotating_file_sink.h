@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include "spdlog/details/file_helper.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/details/file_helper.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/sinks/base_sink.h>
 
 #include <chrono>
 #include <mutex>
@@ -35,10 +35,10 @@ protected:
 
 private:
     // Rotate files:
-    // spdlog.txt -> spdlog.1.txt
-    // spdlog.1.txt -> spdlog.2.txt
-    // spdlog.2.txt -> spdlog.3.txt
-    // spdlog.3.txt -> delete
+    // log.txt -> log.1.txt
+    // log.1.txt -> log.2.txt
+    // log.2.txt -> log.3.txt
+    // log.3.txt -> delete
     void rotate_();
 
     // delete the target if exists, and rename the src file  to target
@@ -85,5 +85,5 @@ inline std::shared_ptr<logger> rotating_logger_st(const std::string &logger_name
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/rotating_file_sink-inl.h"
+    #include "rotating_file_sink-inl.h"
 #endif

@@ -4,11 +4,11 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/file_helper.h"
+    #include <spdlog/details/file_helper.h>
 #endif
 
-#include "spdlog/common.h"
-#include "spdlog/details/os.h"
+#include <spdlog/common.h>
+#include <spdlog/details/os.h>
 
 #include <cerrno>
 #include <chrono>
@@ -40,7 +40,7 @@ SPDLOG_INLINE void file_helper::open(const filename_t &fname, bool truncate) {
         os::create_dir(os::dir_name(fname));
         if (truncate) {
             // Truncate by opening-and-closing a tmp file in "wb" mode, always
-            // opening the actual spdlog-we-write-to in "ab" mode, since that
+            // opening the actual log-we-write-to in "ab" mode, since that
             // interacts more politely with eternal processes that might
             // rotate/truncate the file underneath us.
             std::FILE *tmp;

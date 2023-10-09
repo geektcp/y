@@ -4,17 +4,17 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/sinks/stdout_sinks.h"
+    #include <spdlog/sinks/stdout_sinks.h>
 #endif
 
 #include <memory>
-#include "spdlog/details/console_globals.h"
-#include "spdlog/pattern_formatter.h"
+#include <spdlog/details/console_globals.h>
+#include <spdlog/pattern_formatter.h>
 
 #ifdef _WIN32
     // under windows using fwrite to non-binary stream results in \r\r\n (see issue #1675)
     // so instead we use ::FileWrite
-    #include "spdlog/details/windows_include.h"
+    #include <spdlog/details/windows_include.h>
 
     #ifndef _USING_V110_SDK71_  // fileapi.h doesn't exist in winxp
         #include <fileapi.h>    // WriteFile (..)
@@ -39,7 +39,7 @@ SPDLOG_INLINE stdout_sink_base<ConsoleMutex>::stdout_sink_base(FILE *file)
     handle_ = reinterpret_cast<HANDLE>(::_get_osfhandle(::_fileno(file_)));
 
     // don't throw to support cases where no console is attached,
-    // and let the spdlog method to do nothing if (handle_ == INVALID_HANDLE_VALUE).
+    // and let the log method to do nothing if (handle_ == INVALID_HANDLE_VALUE).
     // throw only if non stdout/stderr target is requested (probably regular file and not console).
     if (handle_ == INVALID_HANDLE_VALUE && file != stdout && file != stderr) {
         throw_spdlog_ex("spdlog::stdout_sink_base: _get_osfhandle() failed", errno);

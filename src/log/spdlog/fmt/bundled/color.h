@@ -8,7 +8,7 @@
 #ifndef FMT_COLOR_H_
 #define FMT_COLOR_H_
 
-#include "spdlog/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 FMT_MODULE_EXPORT_BEGIN

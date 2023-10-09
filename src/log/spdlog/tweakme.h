@@ -27,10 +27,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-// Uncomment if thread id logging is not needed (i.e. no %t in the spdlog pattern).
-// This will prevent spdlog from querying the thread id on each spdlog call.
+// Uncomment if thread id logging is not needed (i.e. no %t in the log pattern).
+// This will prevent spdlog from querying the thread id on each log call.
 //
-// WARNING: If the spdlog pattern contains thread id (i.e, %t) while this flag is
+// WARNING: If the log pattern contains thread id (i.e, %t) while this flag is
 // on, zero will be logged as thread id.
 //
 // #define SPDLOG_NO_THREAD_ID
@@ -46,8 +46,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-// Uncomment to avoid spdlog's usage of atomic spdlog levels
-// Use only if your code never modifies a logger's spdlog levels concurrently by
+// Uncomment to avoid spdlog's usage of atomic log levels
+// Use only if your code never modifies a logger's log levels concurrently by
 // different threads.
 //
 // #define SPDLOG_NO_ATOMIC_LEVELS
@@ -94,7 +94,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-// Uncomment to prevent child processes from inheriting spdlog file descriptors
+// Uncomment to prevent child processes from inheriting log file descriptors
 //
 // #define SPDLOG_PREVENT_CHILD_FD
 ///////////////////////////////////////////////////////////////////////////////

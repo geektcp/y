@@ -3,17 +3,17 @@
 
 #pragma once
 
-#include "spdlog/base_sink.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/pattern_formatter.h"
+#include "base_sink.h"
+#include <spdlog/details/log_msg.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/pattern_formatter.h>
 
 #include <algorithm>
 #include <memory>
 #include <mutex>
 #include <vector>
 
-// Distribution sink (mux). Stores a vector of sinks which get called when spdlog
+// Distribution sink (mux). Stores a vector of sinks which get called when log
 // is called
 
 namespace spdlog {

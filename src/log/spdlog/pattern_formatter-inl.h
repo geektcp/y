@@ -4,14 +4,14 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/pattern_formatter.h"
+    #include <spdlog/pattern_formatter.h>
 #endif
 
-#include "spdlog/details/fmt_helper.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/details/os.h"
-#include "spdlog/fmt/fmt.h"
-#include "spdlog/formatter.h"
+#include <spdlog/details/fmt_helper.h>
+#include <spdlog/details/log_msg.h>
+#include <spdlog/details/os.h>
+#include <spdlog/fmt/fmt.h>
+#include <spdlog/formatter.h>
 
 #include <algorithm>
 #include <array>
@@ -104,7 +104,7 @@ public:
     }
 };
 
-// spdlog level appender
+// log level appender
 template <typename ScopedPadder>
 class level_formatter final : public flag_formatter {
 public:
@@ -118,7 +118,7 @@ public:
     }
 };
 
-// short spdlog level appender
+// short log level appender
 template <typename ScopedPadder>
 class short_level_formatter final : public flag_formatter {
 public:
@@ -1135,25 +1135,25 @@ SPDLOG_INLINE void pattern_formatter::handle_flag_(char flag, details::padding_i
             formatters_.push_back(details::make_unique<details::ch_formatter>('%'));
             break;
 
-        case ('u'):  // elapsed time since last spdlog message in nanos
+        case ('u'):  // elapsed time since last log message in nanos
             formatters_.push_back(
                 details::make_unique<details::elapsed_formatter<Padder, std::chrono::nanoseconds>>(
                     padding));
             break;
 
-        case ('i'):  // elapsed time since last spdlog message in micros
+        case ('i'):  // elapsed time since last log message in micros
             formatters_.push_back(
                 details::make_unique<details::elapsed_formatter<Padder, std::chrono::microseconds>>(
                     padding));
             break;
 
-        case ('o'):  // elapsed time since last spdlog message in millis
+        case ('o'):  // elapsed time since last log message in millis
             formatters_.push_back(
                 details::make_unique<details::elapsed_formatter<Padder, std::chrono::milliseconds>>(
                     padding));
             break;
 
-        case ('O'):  // elapsed time since last spdlog message in seconds
+        case ('O'):  // elapsed time since last log message in seconds
             formatters_.push_back(
                 details::make_unique<details::elapsed_formatter<Padder, std::chrono::seconds>>(
                     padding));

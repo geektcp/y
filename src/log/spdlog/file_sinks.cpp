@@ -5,16 +5,16 @@
     #error Please define SPDLOG_COMPILED_LIB to compile this file.
 #endif
 
-#include "log/spdlog/details/file_helper-inl.h"
-#include "log/spdlog/details/null_mutex.h"
-#include "log/spdlog/sinks/base_sink-inl.h"
-#include "log/spdlog/sinks/basic_file_sink-inl.h"
+#include <spdlog/details/file_helper-inl.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/base_sink-inl.h>
+#include <spdlog/sinks/basic_file_sink-inl.h>
 
 #include <mutex>
 
 template class SPDLOG_API spdlog::sinks::basic_file_sink<std::mutex>;
 template class SPDLOG_API spdlog::sinks::basic_file_sink<spdlog::details::null_mutex>;
 
-#include "log/spdlog/sinks/rotating_file_sink-inl.h"
+#include <spdlog/sinks/rotating_file_sink-inl.h>
 template class SPDLOG_API spdlog::sinks::rotating_file_sink<std::mutex>;
 template class SPDLOG_API spdlog::sinks::rotating_file_sink<spdlog::details::null_mutex>;

@@ -4,7 +4,7 @@
 #pragma once
 
 #include <ctime>  // std::time_t
-#include "spdlog/common.h"
+#include <spdlog/common.h>
 
 namespace spdlog {
 namespace details {
@@ -119,5 +119,5 @@ SPDLOG_API bool fsync(FILE *fp);
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/os-inl.h"
+    #include "os-inl.h"
 #endif

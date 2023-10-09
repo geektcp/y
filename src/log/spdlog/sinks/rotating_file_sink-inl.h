@@ -4,14 +4,14 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/sinks/rotating_file_sink.h"
+    #include <spdlog/sinks/rotating_file_sink.h>
 #endif
 
-#include "spdlog/common.h"
+#include <spdlog/common.h>
 
-#include "spdlog/details/file_helper.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/fmt/fmt.h"
+#include <spdlog/details/file_helper.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/fmt/fmt.h>
 
 #include <cerrno>
 #include <chrono>
@@ -95,10 +95,10 @@ SPDLOG_INLINE void rotating_file_sink<Mutex>::flush_() {
 }
 
 // Rotate files:
-// spdlog.txt -> spdlog.1.txt
-// spdlog.1.txt -> spdlog.2.txt
-// spdlog.2.txt -> spdlog.3.txt
-// spdlog.3.txt -> delete
+// log.txt -> log.1.txt
+// log.1.txt -> log.2.txt
+// log.2.txt -> log.3.txt
+// log.3.txt -> delete
 template <typename Mutex>
 SPDLOG_INLINE void rotating_file_sink<Mutex>::rotate_() {
     using details::os::filename_to_str;
@@ -119,7 +119,7 @@ SPDLOG_INLINE void rotating_file_sink<Mutex>::rotate_() {
             details::os::sleep_for_millis(100);
             if (!rename_file_(src, target)) {
                 file_helper_.reopen(
-                    true);  // truncate the spdlog file anyway to prevent it to grow beyond its limit!
+                    true);  // truncate the log file anyway to prevent it to grow beyond its limit!
                 current_size_ = 0;
                 throw_spdlog_ex("rotating_file_sink: failed renaming " + filename_to_str(src) +
                                     " to " + filename_to_str(target),

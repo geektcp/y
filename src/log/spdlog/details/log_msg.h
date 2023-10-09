@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "spdlog/common.h"
+#include <spdlog/common.h>
 #include <string>
 
 namespace spdlog {
@@ -36,5 +36,5 @@ struct SPDLOG_API log_msg {
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/log_msg-inl.h"
+    #include "log_msg-inl.h"
 #endif

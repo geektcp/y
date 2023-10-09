@@ -15,7 +15,7 @@
 #include "spdlog/common.h"
 #include "spdlog/details/log_msg.h"
 #include "spdlog/details/synchronous_factory.h"
-#include "spdlog/base_sink.h"
+#include "spdlog/sinks/base_sink.h"
 #include <array>
 
 #include <QPlainTextEdit>
@@ -57,7 +57,7 @@ private:
 };
 
 // QT color sink to QTextEdit.
-// Color location is determined by the sink spdlog pattern like in the rest of spdlog sinks.
+// Color location is determined by the sink log pattern like in the rest of spdlog sinks.
 // Colors can be modified if needed using sink->set_color(level, qtTextCharFormat).
 // max_lines is the maximum number of lines that the sink will hold before removing the oldest
 // lines. By default, only ascii (latin1) is supported by this sink. Set is_utf8 to true if utf8
@@ -238,7 +238,7 @@ using qt_color_sink_st = qt_color_sink<details::null_mutex>;
 // Factory functions
 //
 
-// spdlog to QTextEdit
+// log to QTextEdit
 template <typename Factory = spdlog::synchronous_factory>
 inline std::shared_ptr<logger> qt_logger_mt(const std::string &logger_name,
                                             QTextEdit *qt_object,
@@ -253,7 +253,7 @@ inline std::shared_ptr<logger> qt_logger_st(const std::string &logger_name,
     return Factory::template create<sinks::qt_sink_st>(logger_name, qt_object, meta_method);
 }
 
-// spdlog to QPlainTextEdit
+// log to QPlainTextEdit
 template <typename Factory = spdlog::synchronous_factory>
 inline std::shared_ptr<logger> qt_logger_mt(const std::string &logger_name,
                                             QPlainTextEdit *qt_object,
@@ -267,7 +267,7 @@ inline std::shared_ptr<logger> qt_logger_st(const std::string &logger_name,
                                             const std::string &meta_method = "appendPlainText") {
     return Factory::template create<sinks::qt_sink_st>(logger_name, qt_object, meta_method);
 }
-// spdlog to QObject
+// log to QObject
 template <typename Factory = spdlog::synchronous_factory>
 inline std::shared_ptr<logger> qt_logger_mt(const std::string &logger_name,
                                             QObject *qt_object,
@@ -282,7 +282,7 @@ inline std::shared_ptr<logger> qt_logger_st(const std::string &logger_name,
     return Factory::template create<sinks::qt_sink_st>(logger_name, qt_object, meta_method);
 }
 
-// spdlog to QTextEdit with colorize output
+// log to QTextEdit with colorize output
 template <typename Factory = spdlog::synchronous_factory>
 inline std::shared_ptr<logger> qt_color_logger_mt(const std::string &logger_name,
                                                   QTextEdit *qt_text_edit,

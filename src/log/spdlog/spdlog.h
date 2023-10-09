@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/registry.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/logger.h"
-#include "spdlog/version.h"
+#include <spdlog/common.h>
+#include <spdlog/details/registry.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/logger.h>
+#include <spdlog/version.h>
 
 #include <chrono>
 #include <functional>
@@ -74,7 +74,7 @@ SPDLOG_API level::level_enum get_level();
 // Set global logging level
 SPDLOG_API void set_level(level::level_enum log_level);
 
-// Determine whether the default logger should spdlog messages with a certain level
+// Determine whether the default logger should log messages with a certain level
 SPDLOG_API bool should_log(level::level_enum lvl);
 
 // Set global flush level
@@ -195,16 +195,16 @@ inline void log(level::level_enum lvl, const T &msg) {
 
 #ifdef SPDLOG_WCHAR_TO_UTF8_SUPPORT
 template <typename... Args>
-inline void spdlog(source_loc source,
+inline void log(source_loc source,
                 level::level_enum lvl,
                 wformat_string_t<Args...> fmt,
                 Args &&...args) {
-    default_logger_raw()->spdlog(source, lvl, fmt, std::forward<Args>(args)...);
+    default_logger_raw()->log(source, lvl, fmt, std::forward<Args>(args)...);
 }
 
 template <typename... Args>
-inline void spdlog(level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
-    default_logger_raw()->spdlog(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+inline void log(level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
+    default_logger_raw()->log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
 }
 
 template <typename... Args>
@@ -271,7 +271,7 @@ inline void critical(const T &msg) {
 }  // namespace spdlog
 
 //
-// enable/disable spdlog calls at compile time according to global level.
+// enable/disable log calls at compile time according to global level.
 //
 // define SPDLOG_ACTIVE_LEVEL to one of those (before including spdlog.h):
 // SPDLOG_LEVEL_TRACE,
@@ -288,7 +288,7 @@ inline void critical(const T &msg) {
         (logger)->log(spdlog::source_loc{__FILE__, __LINE__, SPDLOG_FUNCTION}, level, __VA_ARGS__)
 #else
     #define SPDLOG_LOGGER_CALL(logger, level, ...) \
-        (logger)->spdlog(spdlog::source_loc{}, level, __VA_ARGS__)
+        (logger)->log(spdlog::source_loc{}, level, __VA_ARGS__)
 #endif
 
 #if SPDLOG_ACTIVE_LEVEL <= SPDLOG_LEVEL_TRACE
@@ -346,7 +346,7 @@ inline void critical(const T &msg) {
 #endif
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/spdlog-inl.h"
+    #include "spdlog-inl.h"
 #endif
 
 #endif  // SPDLOG_H

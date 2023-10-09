@@ -5,13 +5,13 @@
 
 #ifdef __ANDROID__
 
-    #include "spdlog/details/fmt_helper.h"
-    #include "spdlog/details/null_mutex.h"
-    #include "spdlog/details/os.h"
-    #include "spdlog/details/synchronous_factory.h"
-    #include "spdlog/sinks/base_sink.h"
+    #include <spdlog/details/fmt_helper.h>
+    #include <spdlog/details/null_mutex.h>
+    #include <spdlog/details/os.h>
+    #include <spdlog/details/synchronous_factory.h>
+    #include <spdlog/sinks/base_sink.h>
 
-    #include <android/spdlog.h>
+    #include <android/log.h>
     #include <chrono>
     #include <mutex>
     #include <string>
@@ -71,8 +71,8 @@ protected:
 private:
     // There might be liblog versions used, that do not support __android_log_buf_write. So we only
     // compile and link against
-    // __android_log_buf_write, if user explicitly provides a non-default spdlog buffer. Otherwise,
-    // when using the default spdlog buffer, always spdlog via __android_log_write.
+    // __android_log_buf_write, if user explicitly provides a non-default log buffer. Otherwise,
+    // when using the default log buffer, always log via __android_log_write.
     template <int ID = BufferID>
     typename std::enable_if<ID == static_cast<int>(log_id::LOG_ID_MAIN), int>::type android_log(
         int prio, const char *tag, const char *text) {

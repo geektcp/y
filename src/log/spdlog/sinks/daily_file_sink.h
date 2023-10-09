@@ -3,15 +3,15 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/circular_q.h"
-#include "spdlog/details/file_helper.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/details/os.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/fmt/chrono.h"
-#include "spdlog/fmt/fmt.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/circular_q.h>
+#include <spdlog/details/file_helper.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/details/os.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/fmt/chrono.h>
+#include <spdlog/fmt/fmt.h>
+#include <spdlog/sinks/base_sink.h>
 
 #include <chrono>
 #include <cstdio>
@@ -24,7 +24,7 @@ namespace spdlog {
 namespace sinks {
 
 /*
- * Generator of daily spdlog file names in format basename.YYYY-MM-DD.ext
+ * Generator of daily log file names in format basename.YYYY-MM-DD.ext
  */
 struct daily_filename_calculator {
     // Create filename for the form basename.YYYY-MM-DD
@@ -38,11 +38,11 @@ struct daily_filename_calculator {
 };
 
 /*
- * Generator of daily spdlog file names with strftime format.
+ * Generator of daily log file names with strftime format.
  * Usages:
  *    auto sink =
- * std::make_shared<spdlog::sinks::daily_file_format_sink_mt>("myapp-%Y-%m-%d:%H:%M:%S.spdlog", hour,
- * minute);" auto logger = spdlog::daily_logger_format_mt("loggername, "myapp-%Y-%m-%d:%X.spdlog",
+ * std::make_shared<spdlog::sinks::daily_file_format_sink_mt>("myapp-%Y-%m-%d:%H:%M:%S.log", hour,
+ * minute);" auto logger = spdlog::daily_logger_format_mt("loggername, "myapp-%Y-%m-%d:%X.log",
  * hour,  minute)"
  *
  */

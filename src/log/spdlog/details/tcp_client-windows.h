@@ -5,8 +5,8 @@
 
 #define WIN32_LEAN_AND_MEAN
 // tcp client helper
-#include "spdlog/common.h"
-#include "spdlog/details/os.h"
+#include <spdlog/common.h>
+#include <spdlog/details/os.h>
 
 #include <stdio.h>
 #include <stdlib.h>

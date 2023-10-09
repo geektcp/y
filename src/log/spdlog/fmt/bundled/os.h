@@ -17,7 +17,7 @@
 #  include <xlocale.h>  // for LC_NUMERIC_MASK on OS X
 #endif
 
-#include "spdlog/format.h"
+#include "format.h"
 
 #ifndef FMT_USE_FCNTL
 // UWP doesn't provide _pipe.

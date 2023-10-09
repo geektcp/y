@@ -2,11 +2,11 @@
 // Distributed under the MIT License (http://opensource.org/licenses/MIT)
 
 #pragma once
-#include "spdlog/cfg/helpers.h"
-#include "spdlog/details/registry.h"
+#include <spdlog/cfg/helpers.h>
+#include <spdlog/details/registry.h>
 
 //
-// Init spdlog levels using each argv entry that starts with "SPDLOG_LEVEL="
+// Init log levels using each argv entry that starts with "SPDLOG_LEVEL="
 //
 // set all loggers to debug level:
 // example.exe "SPDLOG_LEVEL=debug"

@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/console_globals.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/console_globals.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/sink.h>
 
 #include <array>
 #include <cstdint>
@@ -78,5 +78,5 @@ using wincolor_stderr_sink_st = wincolor_stderr_sink<details::console_nullmutex>
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/wincolor_sink-inl.h"
+    #include "wincolor_sink-inl.h"
 #endif

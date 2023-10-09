@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "spdlog/details/registry.h"
+#include "registry.h"
 
 namespace spdlog {
 

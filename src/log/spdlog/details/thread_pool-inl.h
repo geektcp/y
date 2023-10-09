@@ -4,11 +4,11 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/thread_pool.h"
+    #include <spdlog/details/thread_pool.h>
 #endif
 
 #include <cassert>
-#include "spdlog/common.h"
+#include <spdlog/common.h>
 
 namespace spdlog {
 namespace details {

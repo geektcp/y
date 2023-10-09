@@ -3,14 +3,14 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/circular_q.h"
-#include "spdlog/details/file_helper.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/details/os.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/fmt/fmt.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/circular_q.h>
+#include <spdlog/details/file_helper.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/details/os.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/fmt/fmt.h>
+#include <spdlog/sinks/base_sink.h>
 
 #include <chrono>
 #include <cstdio>
@@ -22,7 +22,7 @@ namespace spdlog {
 namespace sinks {
 
 /*
- * Generator of Hourly spdlog file names in format basename.YYYY-MM-DD-HH.ext
+ * Generator of Hourly log file names in format basename.YYYY-MM-DD-HH.ext
  */
 struct hourly_filename_calculator {
     // Create filename for the form basename.YYYY-MM-DD-H

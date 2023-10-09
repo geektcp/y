@@ -1,17 +1,14 @@
-#include "example.h"
+#include "Dummy.h"
 #include "spdlog/spdlog.h"
-
-Dummy::Dummy() {
-
-}
 
 
 bool Dummy::doSomething() {
-    spdlog::info("Welcome to spdlog!");
+    spdlog::info("Welcome to X !");
+
     // Do silly things, using some C++17 features to enforce C++17 builds only.
     constexpr int digits[2] = {0, 1};
     auto [zero, one] = digits;
-    return zero + one;
+    return zero + one > 13;
 }
 
 

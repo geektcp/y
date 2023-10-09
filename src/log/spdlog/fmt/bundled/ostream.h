@@ -17,7 +17,7 @@
 #  include <__std_stream>
 #endif
 
-#include "spdlog/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 

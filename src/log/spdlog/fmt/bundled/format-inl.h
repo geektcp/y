@@ -26,7 +26,7 @@
 #  include <io.h>  // _isatty
 #endif
 
-#include "spdlog/fmt/bundled/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 namespace detail {
@@ -224,7 +224,7 @@ inline int floor_log10_pow2(int e) noexcept {
   return (e * 315653) >> 20;
 }
 
-// Various fast spdlog computations.
+// Various fast log computations.
 inline int floor_log2_pow10(int e) noexcept {
   FMT_ASSERT(e <= 1233 && e >= -1233, "too large exponent");
   return (e * 1741647) >> 19;

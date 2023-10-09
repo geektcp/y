@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "spdlog/details/log_msg.h"
+#include <spdlog/details/log_msg.h>
 
 namespace spdlog {
 namespace details {
@@ -28,5 +28,5 @@ public:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/log_msg_buffer-inl.h"
+    #include "log_msg_buffer-inl.h"
 #endif

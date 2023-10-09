@@ -12,8 +12,8 @@
 
 #include "spdlog/common.h"
 #include "spdlog/details/log_msg.h"
-#include "spdlog/base_sink.h"
-#include "spdlog/details/synchronous_factory.h"
+#include "spdlog/sinks/base_sink.h"
+#include <spdlog/details/synchronous_factory.h>
 
 #include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/types.hpp>

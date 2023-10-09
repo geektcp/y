@@ -53,5 +53,5 @@ private:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/periodic_worker-inl.h"
+    #include "periodic_worker-inl.h"
 #endif

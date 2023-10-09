@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "spdlog/details/log_msg.h"
-#include "spdlog/formatter.h"
+#include <spdlog/details/log_msg.h>
+#include <spdlog/formatter.h>
 
 namespace spdlog {
 
@@ -22,7 +22,7 @@ public:
     bool should_log(level::level_enum msg_level) const;
 
 protected:
-    // sink spdlog level - default is all
+    // sink log level - default is all
     level_t level_{level::trace};
 };
 
@@ -30,5 +30,5 @@ protected:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/sinks/sink-inl.h"
+    #include "sink-inl.h"
 #endif

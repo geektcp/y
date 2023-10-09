@@ -12,7 +12,7 @@
 #include <memory>      // std::unique_ptr
 #include <vector>
 
-#include "spdlog/core.h"
+#include "core.h"
 
 FMT_BEGIN_NAMESPACE
 

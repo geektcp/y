@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/sinks/base_sink.h>
 
 #include <array>
 #include <string>
@@ -69,7 +69,7 @@ private:
     const std::string ident_;
 
     //
-    // Simply maps spdlog's spdlog level to syslog priority level.
+    // Simply maps spdlog's log level to syslog priority level.
     //
     int syslog_prio_from_level(const details::log_msg &msg) const {
         return syslog_levels_.at(static_cast<levels_array::size_type>(msg.level));

@@ -9,9 +9,9 @@
 // implementers..
 //
 
-#include "spdlog/common.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/sinks/sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/log_msg.h>
+#include <spdlog/sinks/sink.h>
 
 namespace spdlog {
 namespace sinks {
@@ -47,5 +47,5 @@ protected:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/base_sink-inl.h"
+    #include "base_sink-inl.h"
 #endif

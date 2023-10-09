@@ -18,7 +18,7 @@
 #include <ostream>
 #include <type_traits>
 
-#include "spdlog/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 

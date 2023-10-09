@@ -12,7 +12,7 @@
 #include <type_traits>
 #include <utility>
 
-#include "spdlog/ostream.h"
+#include "ostream.h"
 
 #if FMT_HAS_INCLUDE(<version>)
 #  include <version>

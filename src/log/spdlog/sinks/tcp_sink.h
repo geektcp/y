@@ -3,13 +3,13 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/common.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/base_sink.h>
 #ifdef _WIN32
-    #include "spdlog/details/tcp_client-windows.h"
+    #include <spdlog/details/tcp_client-windows.h>
 #else
-    #include "spdlog/details/tcp_client.h"
+    #include <spdlog/details/tcp_client.h>
 #endif
 
 #include <chrono>
@@ -20,7 +20,7 @@
 #pragma once
 
 // Simple tcp client sink
-// Connects to remote address and send the formatted spdlog.
+// Connects to remote address and send the formatted log.
 // Will attempt to reconnect if connection drops.
 // If more complicated behaviour is needed (i.e get responses), you can inherit it and override the
 // sink_it_ method.
@@ -31,7 +31,7 @@ namespace sinks {
 struct tcp_sink_config {
     std::string server_host;
     int server_port;
-    bool lazy_connect = false;  // if true connect on first spdlog call instead of on construction
+    bool lazy_connect = false;  // if true connect on first log call instead of on construction
 
     tcp_sink_config(std::string host, int port)
         : server_host{std::move(host)},

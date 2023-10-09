@@ -5,16 +5,16 @@
 
 // Fast asynchronous logger.
 // Uses pre allocated queue.
-// Creates a single back thread to pop messages from the queue and spdlog them.
+// Creates a single back thread to pop messages from the queue and log them.
 //
-// Upon each spdlog write the logger:
-//    1. Checks if its spdlog level is enough to spdlog the message
+// Upon each log write the logger:
+//    1. Checks if its log level is enough to log the message
 //    2. Push a new copy of the message to a queue (or block the caller until
 //    space is available in the queue)
 // Upon destruction, logs all remaining messages in the queue before
 // destructing..
 
-#include "spdlog/logger.h"
+#include <spdlog/logger.h>
 
 namespace spdlog {
 
@@ -70,5 +70,5 @@ private:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/async_logger-inl.h"
+    #include "async_logger-inl.h"
 #endif

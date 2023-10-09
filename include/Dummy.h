@@ -4,17 +4,18 @@
  * This is a dummy class to demonstrate features of the boiler plate.
  */
 class Dummy {
-	public:
+public:
 
-  /**
-   * Default constructor for Dummy (does nothing).
-   */
-  Dummy();
-  /**
-   * Returns a bool.
-   * @return Always True.
-   */
-  bool doSomething();
+    /**
+     * Default constructor for Dummy (does nothing).
+     */
+    Dummy() = default;
+
+    /**
+     * Returns a bool.
+     * @return Always True.
+     */
+    bool doSomething();
 };
 
 

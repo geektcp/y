@@ -4,9 +4,9 @@
 #pragma once
 
 // Thread safe logger (except for set_error_handler())
-// Has name, spdlog level, vector of std::shared sink pointers and formatter
-// Upon each spdlog write the logger:
-// 1. Checks if its spdlog level is enough to spdlog the message and if yes:
+// Has name, log level, vector of std::shared sink pointers and formatter
+// Upon each log write the logger:
+// 1. Checks if its log level is enough to log the message and if yes:
 // 2. Call the underlying sinks to do the job.
 // 3. Each sink use its own private copy of a formatter to format the message
 // and send to its destination.
@@ -14,15 +14,15 @@
 // The use of private formatter per sink provides the opportunity to cache some
 // formatted data, and support for different format per sink.
 
-#include "spdlog/common.h"
-#include "spdlog/details/backtracer.h"
-#include "spdlog/details/log_msg.h"
+#include <spdlog/common.h>
+#include <spdlog/details/backtracer.h>
+#include <spdlog/details/log_msg.h>
 
 #ifdef SPDLOG_WCHAR_TO_UTF8_SUPPORT
     #ifndef _WIN32
         #error SPDLOG_WCHAR_TO_UTF8_SUPPORT only supported on windows
     #endif
-    #include "spdlog/details/os.h"
+    #include <spdlog/details/os.h>
 #endif
 
 #include <vector>
@@ -157,16 +157,16 @@ public:
 
 #ifdef SPDLOG_WCHAR_TO_UTF8_SUPPORT
     template <typename... Args>
-    void spdlog(source_loc loc, level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
+    void log(source_loc loc, level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
         log_(loc, lvl, details::to_string_view(fmt), std::forward<Args>(args)...);
     }
 
     template <typename... Args>
-    void spdlog(level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
+    void log(level::level_enum lvl, wformat_string_t<Args...> fmt, Args &&...args) {
+        log(source_loc{}, lvl, fmt, std::forward<Args>(args)...);
     }
 
-    void spdlog(log_clock::time_point log_time,
+    void log(log_clock::time_point log_time,
              source_loc loc,
              level::level_enum lvl,
              wstring_view_t msg) {
@@ -182,7 +182,7 @@ public:
         log_it_(log_msg, log_enabled, traceback_enabled);
     }
 
-    void spdlog(source_loc loc, level::level_enum lvl, wstring_view_t msg) {
+    void log(source_loc loc, level::level_enum lvl, wstring_view_t msg) {
         bool log_enabled = should_log(lvl);
         bool traceback_enabled = tracer_.enabled();
         if (!log_enabled && !traceback_enabled) {
@@ -195,36 +195,36 @@ public:
         log_it_(log_msg, log_enabled, traceback_enabled);
     }
 
-    void spdlog(level::level_enum lvl, wstring_view_t msg) { spdlog(source_loc{}, lvl, msg); }
+    void log(level::level_enum lvl, wstring_view_t msg) { log(source_loc{}, lvl, msg); }
 
     template <typename... Args>
     void trace(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::trace, fmt, std::forward<Args>(args)...);
+        log(level::trace, fmt, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
     void debug(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::debug, fmt, std::forward<Args>(args)...);
+        log(level::debug, fmt, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
     void info(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::info, fmt, std::forward<Args>(args)...);
+        log(level::info, fmt, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
     void warn(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::warn, fmt, std::forward<Args>(args)...);
+        log(level::warn, fmt, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
     void error(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::err, fmt, std::forward<Args>(args)...);
+        log(level::err, fmt, std::forward<Args>(args)...);
     }
 
     template <typename... Args>
     void critical(wformat_string_t<Args...> fmt, Args &&...args) {
-        spdlog(level::critical, fmt, std::forward<Args>(args)...);
+        log(level::critical, fmt, std::forward<Args>(args)...);
     }
 #endif
 
@@ -357,7 +357,7 @@ protected:
     }
 #endif  // SPDLOG_WCHAR_TO_UTF8_SUPPORT
 
-    // spdlog the given message (if the given spdlog level is high enough),
+    // log the given message (if the given log level is high enough),
     // and save backtrace (if backtrace is enabled).
     void log_it_(const details::log_msg &log_msg, bool log_enabled, bool traceback_enabled);
     virtual void sink_it_(const details::log_msg &msg);
@@ -375,5 +375,5 @@ void swap(logger &a, logger &b);
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/logger-inl.h"
+    #include "logger-inl.h"
 #endif

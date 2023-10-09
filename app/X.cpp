@@ -10,7 +10,8 @@
 #include <stdlib.h>
 
 #include "exampleConfig.h"
-#include "example.h"
+#include "Dummy.h"
+#include "Tlog.h"
 
 #include "spdlog/spdlog.h"
 
@@ -22,9 +23,9 @@ using namespace std;
  * CMake definitions (here the version number) from source code.
  */
 int main() {
-  spdlog::info("Welcome to log example: {} | {}!", 3, "log4j");
+  spdlog::info("Welcome to X language: {} !", "any thing");
 
-  std::cout << "C++ Boiler Plate v"
+  std::cout << "C++ start from here: "
             << PROJECT_VERSION_MAJOR
             << "."
             << PROJECT_VERSION_MINOR
@@ -36,6 +37,9 @@ int main() {
   std::system("df -h");
 
   cout<<__cplusplus<<endl;
+
+  Tlog t = Tlog();
+  t.log();
 
   // Bring in the dummy class from the example source,
   // just to show that it is accessible from main.cpp.

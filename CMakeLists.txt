@@ -38,6 +38,7 @@ include(Colors)
 include(LTO)
 include(Misc)
 include(Warnings)
+include(AutoCollect)
 
 # Check for LTO support.
 find_lto(CXX)
@@ -45,9 +46,21 @@ find_lto(CXX)
 # --------------------------------------------------------------------------------
 #                         Locate files (change as needed).
 # --------------------------------------------------------------------------------
+CollectSourceFiles(
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        PRIVATE_SOURCES
+        # Exclude
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/log)
+
+
+message("CMAKE_CURRENT_SOURCE_DIR: " ${CMAKE_CURRENT_SOURCE_DIR})
+message("PRIVATE_SOURCES: " ${PRIVATE_SOURCES})
+
 set(SOURCES          # All .cpp files in src/
-    src/example.cpp
-)
+        ${PRIVATE_SOURCES}
+        ${Header_List} )
+message("SOURCES: " ${SOURCES})
+
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
 )
@@ -71,8 +84,8 @@ target_set_warnings(${LIBRARY_NAME} ENABLE ALL AS_ERROR ALL DISABLE Annoying)
 
 # Add an executable for the file app/main.cpp.
 # If you add more executables, copy these lines accordingly.
-add_executable(${MAIN_EXECUTE} app/main.cpp)   # Name of exec. and location of file.
-target_link_libraries(${MAIN_EXECUTE} PRIVATE ${LIBRARY_NAME})  # Link the executable to library (if it uses it).
+add_executable(${MAIN_EXECUTE} app/X.cpp)   # Name of exec. and location of file.
+target_link_libraries(${MAIN_EXECUTE} PRIVATE ${LIBRARY_NAME} pthread)  # Link the executable to library (if it uses it).
 target_set_warnings(${MAIN_EXECUTE} ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Set warnings (if needed).
 target_enable_lto(${MAIN_EXECUTE} optimized)  # enable link-time-optimization if available for non-debug configurations
 

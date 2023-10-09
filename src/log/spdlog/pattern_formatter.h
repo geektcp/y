@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include "spdlog/common.h"
-#include "spdlog/details/log_msg.h"
-#include "spdlog/details/os.h"
-#include "spdlog/formatter.h"
+#include <spdlog/common.h>
+#include <spdlog/details/log_msg.h>
+#include <spdlog/details/os.h>
+#include <spdlog/formatter.h>
 
 #include <chrono>
 #include <ctime>
@@ -114,5 +114,5 @@ private:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/pattern_formatter-inl.h"
+    #include "pattern_formatter-inl.h"
 #endif

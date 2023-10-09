@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/tweakme.h"
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/tweakme.h>
 
 #include <atomic>
 #include <chrono>
@@ -47,14 +47,14 @@
     #define SPDLOG_INLINE inline
 #endif  // #ifdef SPDLOG_COMPILED_LIB
 
-#include "spdlog/fmt/fmt.h"
+#include <spdlog/fmt/fmt.h>
 
 #if !defined(SPDLOG_USE_STD_FORMAT) && \
     FMT_VERSION >= 80000  // backward compatibility with fmt versions older than 8
     #define SPDLOG_FMT_RUNTIME(format_string) fmt::runtime(format_string)
     #define SPDLOG_FMT_STRING(format_string) FMT_STRING(format_string)
     #if defined(SPDLOG_WCHAR_FILENAMES) || defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT)
-        #include "spdlog/fmt/xchar.h"
+        #include <spdlog/fmt/xchar.h>
     #endif
 #else
     #define SPDLOG_FMT_RUNTIME(format_string) format_string
@@ -283,8 +283,8 @@ enum class color_mode { always, automatic, never };
 // local time by default
 //
 enum class pattern_time_type {
-    local,  // spdlog localtime
-    utc     // spdlog utc
+    local,  // log localtime
+    utc     // log utc
 };
 
 //
@@ -398,5 +398,5 @@ constexpr T conditional_static_cast(U value) {
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/common-inl.h"
+    #include "common-inl.h"
 #endif

@@ -3,7 +3,7 @@
 
 // Writing to Windows Event Log requires the registry entries below to be present, with the
 // following modifications:
-// 1. <log_name>    should be replaced with your spdlog name (e.g. your application name)
+// 1. <log_name>    should be replaced with your log name (e.g. your application name)
 // 2. <source_name> should be replaced with the specific source name and the key should be
 // duplicated for
 //                  each source used in the application
@@ -33,10 +33,10 @@ Windows Registry Editor Version 5.00
 
 #pragma once
 
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/base_sink.h>
 
-#include "spdlog/details/windows_include.h"
+#include <spdlog/details/windows_include.h>
 #include <winbase.h>
 
 #include <mutex>
@@ -242,7 +242,7 @@ public:
             current_user_sid_ = internal::sid_t::get_current_user_sid();
         } catch (...) {
             // get_current_user_sid() is unlikely to fail and if it does, we can still proceed
-            // without current_user_sid but in the event spdlog the record will have no user name
+            // without current_user_sid but in the event log the record will have no user name
         }
     }
 

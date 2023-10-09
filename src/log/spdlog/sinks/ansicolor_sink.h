@@ -6,9 +6,9 @@
 #include <array>
 #include <memory>
 #include <mutex>
-#include "spdlog/details/console_globals.h"
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/sinks/sink.h"
+#include <spdlog/details/console_globals.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/sink.h>
 #include <string>
 
 namespace spdlog {
@@ -111,5 +111,5 @@ using ansicolor_stderr_sink_st = ansicolor_stderr_sink<details::console_nullmute
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/sinks/ansicolor_sink-inl.h"
+    #include "ansicolor_sink-inl.h"
 #endif

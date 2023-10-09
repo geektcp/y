@@ -24,8 +24,8 @@
     // enable ostream formatting for backward compatibility with fmt 8.x
     #define FMT_DEPRECATED_OSTREAM
 
-    #include "spdlog/fmt/bundled/core.h"
-    #include "spdlog/fmt/bundled/format.h"
+    #include <spdlog/fmt/bundled/core.h>
+    #include <spdlog/fmt/bundled/format.h>
 
 #else  // SPDLOG_FMT_EXTERNAL is defined - use external fmtlib
     #include <fmt/core.h>

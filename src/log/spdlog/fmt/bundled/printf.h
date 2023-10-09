@@ -11,7 +11,7 @@
 #include <algorithm>  // std::max
 #include <limits>     // std::numeric_limits
 
-#include "spdlog/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 FMT_MODULE_EXPORT_BEGIN

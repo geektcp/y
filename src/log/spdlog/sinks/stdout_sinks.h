@@ -4,12 +4,12 @@
 #pragma once
 
 #include <cstdio>
-#include "spdlog/details/console_globals.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/sinks/sink.h"
+#include <spdlog/details/console_globals.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/sinks/sink.h>
 
 #ifdef _WIN32
-    #include "spdlog/details/windows_include.h"
+    #include <spdlog/details/windows_include.h>
 #endif
 
 namespace spdlog {
@@ -80,5 +80,5 @@ std::shared_ptr<logger> stderr_logger_st(const std::string &logger_name);
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/stdout_sinks-inl.h"
+    #include "stdout_sinks-inl.h"
 #endif

@@ -8,8 +8,8 @@
 // If user requests a non existing logger, nullptr will be returned
 // This class is thread safe
 
-#include "spdlog/common.h"
-#include "spdlog/details/periodic_worker.h"
+#include <spdlog/common.h>
+#include <spdlog/details/periodic_worker.h>
 
 #include <chrono>
 #include <functional>
@@ -118,5 +118,5 @@ private:
 }  // namespace spdlog
 
 #ifdef SPDLOG_HEADER_ONLY
-    #include "spdlog/details/registry-inl.h"
+    #include "registry-inl.h"
 #endif

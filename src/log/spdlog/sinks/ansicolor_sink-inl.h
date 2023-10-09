@@ -4,11 +4,11 @@
 #pragma once
 
 #ifndef SPDLOG_HEADER_ONLY
-    #include "spdlog/sinks/ansicolor_sink.h"
+    #include <spdlog/sinks/ansicolor_sink.h>
 #endif
 
-#include "spdlog/details/os.h"
-#include "spdlog/pattern_formatter.h"
+#include <spdlog/details/os.h>
+#include <spdlog/pattern_formatter.h>
 
 namespace spdlog {
 namespace sinks {
@@ -40,7 +40,7 @@ SPDLOG_INLINE void ansicolor_sink<ConsoleMutex>::set_color(level::level_enum col
 template <typename ConsoleMutex>
 SPDLOG_INLINE void ansicolor_sink<ConsoleMutex>::log(const details::log_msg &msg) {
     // Wrap the originally formatted message in color codes.
-    // If color is not supported in the terminal, spdlog as is instead.
+    // If color is not supported in the terminal, log as is instead.
     std::lock_guard<mutex_t> lock(mutex_);
     msg.color_range_start = 0;
     msg.color_range_end = 0;

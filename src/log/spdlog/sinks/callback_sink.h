@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include "spdlog/details/null_mutex.h"
-#include "spdlog/details/synchronous_factory.h"
-#include "spdlog/sinks/base_sink.h"
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/details/synchronous_factory.h>
+#include <spdlog/sinks/base_sink.h>
 
 #include <mutex>
 #include <string>
@@ -17,7 +17,7 @@ typedef std::function<void(const details::log_msg &msg)> custom_log_callback;
 
 namespace sinks {
 /*
- * Trivial callback sink, gets a callback function and calls it on each spdlog
+ * Trivial callback sink, gets a callback function and calls it on each log
  */
 template <typename Mutex>
 class callback_sink final : public base_sink<Mutex> {

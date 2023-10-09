@@ -7,9 +7,9 @@
 
 #include <mutex>
 
-#include "async.h"
-#include "log/spdlog/details/null_mutex.h"
-#include "log/spdlog/sinks/stdout_sinks-inl.h"
+#include <spdlog/async.h>
+#include <spdlog/details/null_mutex.h>
+#include <spdlog/sinks/stdout_sinks-inl.h>
 
 template class SPDLOG_API spdlog::sinks::stdout_sink_base<spdlog::details::console_mutex>;
 template class SPDLOG_API spdlog::sinks::stdout_sink_base<spdlog::details::console_nullmutex>;

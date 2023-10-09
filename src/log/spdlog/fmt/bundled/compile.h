@@ -8,7 +8,7 @@
 #ifndef FMT_COMPILE_H_
 #define FMT_COMPILE_H_
 
-#include "spdlog/format.h"
+#include "format.h"
 
 FMT_BEGIN_NAMESPACE
 namespace detail {
