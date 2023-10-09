@@ -3,7 +3,7 @@
 #---------------------------------#
 
 # Build worker image (VM template)
-image: Visual Studio 2017
+image: WMF 5
 
 clone_depth: 3
 
