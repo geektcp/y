@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.9)
 # Set project name, version and laguages here. (change as needed)
 # Version numbers are available by including "exampleConfig.h" in
 # the source. See exampleConfig.h.in for some more details.
-project(EXAMPLE-CPP VERSION 1.2.3.4 LANGUAGES CXX)
+project(EXAMPLE-CPP VERSION 1.2.3.4 )
 
 SET(MAIN_EXECUTE example)
 set(CMAKE_BUILD_TYPE Debug)
