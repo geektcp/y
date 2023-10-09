@@ -18,8 +18,8 @@ using namespace std;
 /*
  */
 int main() {
-  spdlog::info("Welcome to X language: {} !", "any thing");
-  std::system("echo X language is a new language !");
+  spdlog::info("Welcome to Y language: {} !", "any thing");
+  std::system("echo Y language is a new language !");
 
   cout<<__cplusplus<<endl;
 

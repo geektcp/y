@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.9)
 
-project(X VERSION 0.1 )
+project(Y VERSION 0.1 )
 
 SET(MAIN_EXECUTE example)
 set(CMAKE_BUILD_TYPE Debug)
@@ -76,7 +76,7 @@ target_set_warnings(${LIBRARY_NAME} ENABLE ALL AS_ERROR ALL DISABLE Annoying)
 
 # Add an executable for the file app/x.cpp.
 # If you add more executables, copy these lines accordingly.
-add_executable(${MAIN_EXECUTE} app/X.cpp)   # Name of exec. and location of file.
+add_executable(${MAIN_EXECUTE} app/Y.cpp)   # Name of exec. and location of file.
 target_link_libraries(${MAIN_EXECUTE} PRIVATE ${LIBRARY_NAME} pthread)  # Link the executable to library (if it uses it).
 target_set_warnings(${MAIN_EXECUTE} ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Set warnings (if needed).
 target_enable_lto(${MAIN_EXECUTE} optimized)  # enable link-time-optimization if available for non-debug configurations
