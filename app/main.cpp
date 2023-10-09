@@ -12,6 +12,8 @@
 #include "exampleConfig.h"
 #include "example.h"
 
+#include "spdlog/spdlog.h"
+
 using namespace std;
 
 
@@ -20,6 +22,8 @@ using namespace std;
  * CMake definitions (here the version number) from source code.
  */
 int main() {
+  spdlog::info("Welcome to log example: {} | {}!", 3, "log4j");
+
   std::cout << "C++ Boiler Plate v"
             << PROJECT_VERSION_MAJOR
             << "."
