@@ -4,12 +4,13 @@ cmake_minimum_required(VERSION 3.9)
 
 project(Y VERSION 0.1 )
 
-SET(MAIN_EXECUTE example)
+SET(MAIN_EXECUTE y)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 message("--------------------------------------------")
 include_directories(${CMAKE_HOME_DIRECTORY}/src/log)
 message("--------------------------------------------")
@@ -93,3 +94,6 @@ set_target_properties(
 
 # Set up tests (see tests/CMakeLists.txt).
 #add_subdirectory(tests)
+
+set(CMAKE_INSTALL_PREFIX /usr/local)
+install(TARGETS ${MAIN_EXECUTE} DESTINATION bin)
