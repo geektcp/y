@@ -19,8 +19,8 @@ src/shared/revision_sql.h eol=lf
 *.patch      whitespace=-trailing-space
 
 
-*.cpp linguist-language=y
-*.c linguist-language=y
-*.h linguist-language=y
-*.java inguist-language=y
-*.sh inguist-language=y
+*.cpp linguist-language=java
+*.c linguist-language=java
+*.h linguist-language=java
+*.java inguist-language=java
+*.sh inguist-language=java
