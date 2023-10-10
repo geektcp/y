@@ -19,8 +19,17 @@ src/shared/revision_sql.h eol=lf
 *.patch      whitespace=-trailing-space
 
 
-*.cpp linguist-language=java
-*.c linguist-language=java
-*.h linguist-language=java
-*.java inguist-language=java
-*.sh inguist-language=java
+*.cpp   linguist-language=c++
+*.hpp   linguist-language=c++
+*.cxx   linguist-language=c++
+*.in    linguist-language=c++
+*.h     linguist-language=c++
+*.c     linguist-language=c
+*.y     linguist-language=y
+*.java  linguist-language=java
+*.sh    linguist-language=shell
+*.xml   linguist-language=xml
+*.md    linguist-language=markdown
+*.html  linguist-language=html
+*.cmake linguist-language=cmake
+CMakeLists.txt linguist-language=cmake
