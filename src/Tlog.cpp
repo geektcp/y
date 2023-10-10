@@ -2,7 +2,6 @@
 #include "Tlog.h"
 #include "spdlog/spdlog.h"
 
-using namespace spdlog;
 
 
 bool Tlog::log() {

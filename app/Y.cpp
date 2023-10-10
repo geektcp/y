@@ -12,7 +12,6 @@
 
 #include "spdlog/spdlog.h"
 
-using namespace std;
 
 
 /*
@@ -21,14 +20,13 @@ int main() {
   spdlog::info("Welcome to Y language: {} !", "any thing");
   std::system("echo Y language is a new language !");
 
-  cout<<__cplusplus<<endl;
+  std::cout<<__cplusplus<<std::endl;
 
   Tlog t = Tlog();
   t.log();
 
   Dummy d = Dummy();
   int ret = d.doSomething() ? 0 : -1;
-  std::cout << "ret: " << ret
-          << std::endl;
+  std::cout << "ret: " << ret << std::endl;
   return ret;
 }
