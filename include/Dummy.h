@@ -1,8 +1,12 @@
 #pragma once
+#include <stdint.h>
 
+typedef uint32_t uint32;
 /**
  * This is a dummy class to demonstrate features of the boiler plate.
  */
+
+
 class Dummy {
 public:
 
@@ -17,7 +21,7 @@ public:
      */
     bool DoSomething();
 
-    void Init(unsigned int constAccountId, unsigned int constGuid);
+    void Init(uint32_t constAccountId, uint32 constGuid);
 
 };
 

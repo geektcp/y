@@ -26,7 +26,7 @@ int main() {
   t.log();
 
   Dummy d = Dummy();
-  int ret = d.doSomething() ? 0 : -1;
+  int ret = d.DoSomething() ? 0 : -1;
   std::cout << "ret: " << ret << std::endl;
   return ret;
 }

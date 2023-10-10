@@ -12,9 +12,9 @@ bool Dummy::DoSomething() {
 }
 
 
-void Dummy::Init(unsigned int constAccountId, unsigned int constGuid){
-    unsigned int& accountId = constAccountId;
-    unsigned int& guid = constGuid;
+void Dummy::Init(uint32 constAccountId, uint32 constGuid){
+    uint32& accountId = constAccountId;
+    uint32& guid = constGuid;
     spdlog::info("constAccountId: {} | constGuid: {}",constAccountId, constGuid);
     spdlog::info("accountId: {} | guid: {}",accountId, guid);
 }
