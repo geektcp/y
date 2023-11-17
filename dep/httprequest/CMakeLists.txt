@@ -9,7 +9,7 @@ add_library(${LIBRARY_NAME} STATIC
 
 target_include_directories(${LIBRARY_NAME}
         PUBLIC
-        ${PROJECT_SOURCE_DIR}/include
+        ../../include
         ${PROJECT_SOURCE_DIR}/dep/httprequest
         ${PROJECT_SOURCE_DIR}/dep/restclient
         )
