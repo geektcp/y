@@ -1,7 +1,7 @@
 # include dep
+add_subdirectory(boost)
 add_subdirectory(bzip2)
 add_subdirectory(httprequest)
-add_subdirectory(jemalloc)
 add_subdirectory(jsonlib)
 add_subdirectory(log)
 add_subdirectory(readline)

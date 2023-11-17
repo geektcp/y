@@ -1,10 +1,9 @@
-# This is a new language which called X language
+# This is y language which called y language
 
 cmake_minimum_required(VERSION 3.9)
 
-project(Y VERSION 0.1 )
+project(y VERSION 0.1 )
 
-SET(MAIN_EXECUTE y)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 
@@ -59,41 +58,22 @@ set(TESTFILES        # All .cpp files in tests/
 )
 set(LIBRARY_NAME engine)  # Default name for the library built from src/*.cpp (change if you wish)
 
-# --------------------------------------------------------------------------------
-#                            Build! (Change as needed)
-# --------------------------------------------------------------------------------
-# Compile all sources into a library.
-add_library(${LIBRARY_NAME} OBJECT ${SOURCES})
-
-# Lib needs its header files, and users of the library must also see these (PUBLIC). (No change needed)
-target_include_directories(${LIBRARY_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
-
-# There's also (probably) doctests within the library, so we need to see this as well.
-#target_link_libraries(${LIBRARY_NAME} PUBLIC doctest)
-
-# Set the compile options you want (change as needed).
-target_set_warnings(${LIBRARY_NAME} ENABLE ALL AS_ERROR ALL DISABLE Annoying)
-# target_compile_options(${LIBRARY_NAME} ... )  # For setting manually.
-
-# Add an executable for the file app/x.cpp.
-# If you add more executables, copy these lines accordingly.
-add_executable(${MAIN_EXECUTE} app/main/y.cpp)   # Name of exec. and location of file.
-target_link_libraries(${MAIN_EXECUTE} PRIVATE ${LIBRARY_NAME} pthread)  # Link the executable to library (if it uses it).
-target_set_warnings(${MAIN_EXECUTE} ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Set warnings (if needed).
-target_enable_lto(${MAIN_EXECUTE} optimized)  # enable link-time-optimization if available for non-debug configurations
-
-# Set the properties you require, e.g. what C++ standard to use. Here applied to library and main (change as needed).
-set_target_properties(
-    ${LIBRARY_NAME} ${MAIN_EXECUTE}
-        PROPERTIES
-        C_STANDARD 99
-        CXX_STANDARD 17
-        CXX_STANDARD_REQUIRED YES
-        CXX_EXTENSIONS NO
-)
 
 # Set up tests (see tests/CMakeLists.txt).
 #add_subdirectory(tests)
+
+# cmake config
+list(APPEND CMAKE_MODULE_PATH
+        "${CMAKE_SOURCE_DIR}/cmake/macros")
+
+# --------------------------------------------------------------------------------
+#                            Build! (Change as needed)
+# --------------------------------------------------------------------------------
+add_subdirectory(app)
+add_subdirectory(dep)
+add_subdirectory(src)
+
+
 
 set(CMAKE_INSTALL_PREFIX /usr/local)
 install(TARGETS ${MAIN_EXECUTE} DESTINATION bin)
