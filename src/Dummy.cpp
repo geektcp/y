@@ -11,7 +11,6 @@ struct Foo{
     }
 };
 
-//方式二:函数使用bind
 void print(int &n1, int &n2, int &n3){
     n1++;
     n2++;
@@ -39,12 +38,11 @@ void Dummy::CallBack()
 {
     Foo foo;
     auto callback = std::bind(&Foo::print_sum, &foo, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-    callback(5, 10, 15);//回调函数
-//std::placeholders::_1...相当于占位符
+    callback(5, 10, 15);
+//std::placeholders::_1... // para
 
-    //方式二
     int a = 1, b = 2, c = 3;
-    auto func2 = std::bind(print, a, b, std::ref(c)); //引用传参
+    auto func2 = std::bind(print, a, b, std::ref(c));
     func2();
     std::cout <<"a = " << a << endl;
     cout <<"b = " << b << endl;
