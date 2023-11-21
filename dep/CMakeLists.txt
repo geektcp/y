@@ -1,0 +1,11 @@
+# include dep
+add_subdirectory(boost)
+add_subdirectory(bzip2)
+add_subdirectory(httprequest)
+add_subdirectory(jsonlib)
+add_subdirectory(log)
+add_subdirectory(readline)
+add_subdirectory(restclient)
+add_subdirectory(threads)
+add_subdirectory(utf8cpp)
+add_subdirectory(zlib)

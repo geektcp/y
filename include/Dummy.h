@@ -20,7 +20,7 @@ public:
      * @return Always True.
      */
     bool DoSomething();
-
+    static void CallBack();
     void Init(uint32_t constAccountId, uint32 constGuid);
 
 };
