@@ -2,7 +2,7 @@
 #include "Tlog.h"
 #include "spdlog/spdlog.h"
 
-
+#define TLOG_INFO  Tlog::log()
 
 bool Tlog::log() {
     innerLog( );
