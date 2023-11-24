@@ -10,6 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
+
 # --------------------------------------------------------------------------------
 #                         Config
 # --------------------------------------------------------------------------------
@@ -67,7 +68,7 @@ set(SOURCES          # All .cpp files in src/
 message("SOURCES: " ${SOURCES})
 
 set(TESTFILES        # All .cpp files in tests/
-    tests/X.cpp
+    tests/y.cpp
 )
 set(LIBRARY_NAME engine)  # Default name for the library built from src/*.cpp (change if you wish)
 
@@ -86,6 +87,3 @@ add_subdirectory(app)
 add_subdirectory(dep)
 add_subdirectory(src)
 
-
-
-install(TARGETS ${MAIN_EXECUTE} DESTINATION bin)
