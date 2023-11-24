@@ -9,6 +9,7 @@ file(GLOB sources *.cpp *.c *.h)
 
 add_library(${LIBRARY_NAME}  ${sources})
 
+include_directories(${CMAKE_HOME_DIRECTORY}/src/log)
 
 target_include_directories(${LIBRARY_NAME}
         PUBLIC

@@ -13,8 +13,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 # --------------------------------------------------------------------------------
 #                         Config
 # --------------------------------------------------------------------------------
-include_directories(${CMAKE_HOME_DIRECTORY}/src/log)
-set(CMAKE_INSTALL_PREFIX /usr/local/everengine-3.3.5)
+
+set(CMAKE_INSTALL_PREFIX /usr/local/${PROJECT_NAME})
 link_directories(/usr/local/openssl/lib)
 set(OPENSSL_INCLUDE_DIR /usr/local/openssl/include)
 set(OPENSSL_CRYPTO_LIBRARY /usr/local/openssl/lib)
@@ -24,7 +24,6 @@ set(BOOST_ROOT /usr/local/boost)
 link_directories(/usr/local/boost/lib)
 include_directories(/usr/local/boost/include)
 find_package(OpenSSL REQUIRED COMPONENTS Crypto SSL)
-message("--------------------------------------------")
 
 # --------------------------------------------------------------------------------
 #                         Options
@@ -89,5 +88,4 @@ add_subdirectory(src)
 
 
 
-set(CMAKE_INSTALL_PREFIX /usr/local)
 install(TARGETS ${MAIN_EXECUTE} DESTINATION bin)
