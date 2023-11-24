@@ -1,6 +1,6 @@
 # This is y language which called y language
 
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.12.4)
 
 project(y VERSION 0.1 )
 
@@ -10,11 +10,25 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
-message("--------------------------------------------")
+# --------------------------------------------------------------------------------
+#                         Config
+# --------------------------------------------------------------------------------
 include_directories(${CMAKE_HOME_DIRECTORY}/src/log)
+set(CMAKE_INSTALL_PREFIX /usr/local/everengine-3.3.5)
+link_directories(/usr/local/openssl/lib)
+set(OPENSSL_INCLUDE_DIR /usr/local/openssl/include)
+set(OPENSSL_CRYPTO_LIBRARY /usr/local/openssl/lib)
+set(OPENSSL_SSL_LIBRARY /usr/local/openssl/lib)
+
+set(BOOST_ROOT /usr/local/boost)
+link_directories(/usr/local/boost/lib)
+include_directories(/usr/local/boost/include)
+find_package(OpenSSL REQUIRED COMPONENTS Crypto SSL)
 message("--------------------------------------------")
 
-
+# --------------------------------------------------------------------------------
+#                         Options
+# --------------------------------------------------------------------------------
 # Options: Things you can set via commandline options to cmake (e.g. -DENABLE_LTO=[ON|OFF])
 option(ENABLE_WARNINGS_SETTINGS "Allow target_set_warnings to add flags and defines.
                                  Set this to OFF if you want to provide your own warning parameters." ON)
