@@ -10,7 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  executable)
-
+cmake_policy(SET CMP0144 NEW)
 # --------------------------------------------------------------------------------
 #                         Config
 # --------------------------------------------------------------------------------
