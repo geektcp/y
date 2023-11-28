@@ -9,7 +9,7 @@ Y language
 ```why
 #!/bin/why
 
-ret fun helloworld()
+string fun helloworld()
 {
     msg = "hello world!"
     print(msg)
