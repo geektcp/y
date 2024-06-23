@@ -7,11 +7,11 @@ Y language
 
 ## example
 ```why
-#!/bin/why
+#!/bin/y
 
-string fun helloworld()
+msg = "hello world!"
+fun helloworld(msg)
 {
-    msg = "hello world!"
     print(msg)
     return msg
 }
