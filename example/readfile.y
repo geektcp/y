@@ -1,6 +1,6 @@
 #!/bin/why
 
-bool fun readfile(var filename)
+fun readfile(filename)
 {
     var handler = openfile(filename)
     handler.write("something!")

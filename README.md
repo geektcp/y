@@ -7,7 +7,7 @@ Y language
 
 ## example
 ```why
-#!/bin/y
+#!/bin/why
 
 msg = "hello world!"
 fun helloworld(msg)

@@ -1,8 +1,7 @@
 #!/bin/why
 
-string fun helloworld()
+string fun helloworld(msg)
 {
-    msg = "hello world!"
     print(msg)
     return msg
 }
